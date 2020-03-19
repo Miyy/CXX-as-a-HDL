@@ -11,6 +11,10 @@ hdl: $(OBJ)
 bin/%.o: src/%.cpp
 	$(CXX) -o $@ -c $^ $(CXXFLAGS)
 
+all: hdl
+	hdl.exe
+	make clean
+
 .PHONY: clean
 clean:
 	del $(wildcard *.exe)
