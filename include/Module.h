@@ -1,22 +1,18 @@
-#ifndef MIY_CIRCUIT
-#define MIY_CIRCUIT
+#ifndef MIY_MODULE
+#define MIY_MODULE
 
 #include "Signal.h"
+#include "SignalVector.h"
 
-class Circuit
+class Module
 {
 public:
-    Circuit();
-
-    void test();
     virtual void run() = 0;
+    void test();
 
 protected:
-    int nInputs;
-    int nOutputs;
-
-    Input  **inputs;
-    Output **outputs;
+    SignalVector inputs;
+    SignalVector outputs;
 
     bool NOT (bool a);
     bool AND (bool a, bool b);

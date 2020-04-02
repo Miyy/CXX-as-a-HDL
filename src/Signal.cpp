@@ -2,39 +2,47 @@
 
 Signal::Signal()
 {
-    value = false;
+    name  = "";
+    value = new bool(false);
 }
 
+Signal::Signal(std::string name, bool value)
+{
+    this->name  = name;
+    this->value = new bool(value);
+}
 
+Signal::Signal(std::string name, Signal& value)
+{
+    this->name  = name;
+    this->value = (bool*)value;
+}
 
 Signal::operator bool() const
 {
-    return this->value;
+    return *value;
 }
 
-
-
-Signal& Signal::operator=(bool val)
+Signal::operator bool*() const
 {
-    this->value = val;
+    return value;
+}
+
+Signal& Signal::operator=(bool value)
+{
+    *(this->value) = value;
 
     return *this;
 }
 
-
-
-Input& Input::operator=(bool val)
+Signal& Signal::operator=(Signal& signal)
 {
-    this->value = val;
+    *(this->value) = (bool)signal;
 
     return *this;
 }
 
-
-
-Output& Output::operator=(bool val)
+std::string Signal::getName() const
 {
-    this->value = val;
-
-    return *this;
+    return name;
 }
