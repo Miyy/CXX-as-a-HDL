@@ -8,13 +8,13 @@ CXXLIBFLAGS = -I ./lib/include
 
 CXX = g++
 
-hdl.exe: $(OBJ)
+hdl.exe: $(OBJ) $(LIB)
 	$(CXX) -o $@ $^ $(LDFLAGS)
 
 bin/%.o: src/%.cpp
 	$(CXX) -o $@ -c $^ $(CXXFLAGS)
 
-all: hdl.exe
+all: $(LIB) hdl.exe
 	hdl.exe
 
 debug: hdl.exe
