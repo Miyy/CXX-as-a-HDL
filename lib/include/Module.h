@@ -2,17 +2,20 @@
 #define MIY_MODULE
 
 #include "Signal.h"
-#include "SignalVector.h"
+
+#include <map>
+#include <string>
 
 class Module
 {
 public:
     virtual void run() = 0;
-    void test();
+    void         test();
 
 protected:
-    SignalVector inputs;
-    SignalVector outputs;
+    std::map<std::string, Signal> inputs;
+    std::map<std::string, Signal> outputs;
+
 
     bool NOT (bool a);
     bool AND (bool a, bool b);

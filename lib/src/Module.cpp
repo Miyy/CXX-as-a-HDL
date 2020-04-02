@@ -5,9 +5,11 @@ void Module::test()
     //test realization
 }
 
+
+
 bool Module::NOT(bool a)
 {
-    return (!a);
+    return !a;
 }
 
 
